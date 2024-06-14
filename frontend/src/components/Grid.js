@@ -10,7 +10,7 @@ const Table = styled.table`
   padding: 20px;
   box-shadow: 0px 0px 5px #ccc;
   border-radius: 5px;
-  max-width: 1120px;
+  max-width: 1400px;
   margin: 20px auto;
   word-break: break-all;
 `;
@@ -67,6 +67,7 @@ const Grid = ({ users, setUsers, setOnEdit }) => {
           <Th>CPF</Th>
           <Th>Veiculo</Th>
           <Th>KM</Th>
+          <Th>Placa</Th>
           <Th onlyWeb>Observação</Th>
           <Th></Th>
           <Th></Th>
@@ -76,8 +77,9 @@ const Grid = ({ users, setUsers, setOnEdit }) => {
         {users.map((item, i) => (
           <Tr key={i}>
             <Td width="20%">{item.cpf}</Td>
-            <Td width="20%">{item.veiculo}</Td>
-            <Td width="20%">{item.km}</Td>
+            <Td width="15%">{item.veiculo}</Td>
+            <Td width="10%">{item.km}</Td>
+            <Td width="10%">{item.placa}</Td>
             <Td width="40%" onlyWeb>
               {item.observacao}
             </Td>

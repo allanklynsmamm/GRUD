@@ -20,7 +20,7 @@ const InputArea = styled.div`
 `;
 
 const Input = styled.input`
-  width: 120px;
+  width: 100px;
   padding: 0 10px;
   border: 1px solid #bbb;
   border-radius: 5px;
@@ -36,7 +36,7 @@ const Button = styled.button`
   border: none;
   background-color: #2c73d2;
   color: white;
-  height: 42px;
+  height: 50px;
 `;
 
 const Form = ({ getUsers, onEdit, setOnEdit }) => {
@@ -49,6 +49,7 @@ const Form = ({ getUsers, onEdit, setOnEdit }) => {
       user.cpf.value = onEdit.cpf;
       user.veiculo.value = onEdit.veiculo;
       user.km.value = onEdit.km;
+      user.placa.value = onEdit.placa;
       user.observacao.value = onEdit.observacao;
     }
   }, [onEdit]);
@@ -62,6 +63,7 @@ const Form = ({ getUsers, onEdit, setOnEdit }) => {
       !user.cpf.value ||
       !user.veiculo.value ||
       !user.km.value ||
+      !user.placa.value ||
       !user.observacao.value
     ) {
       return toast.warn("Preencha todos os campos!");
@@ -73,6 +75,7 @@ const Form = ({ getUsers, onEdit, setOnEdit }) => {
           cpf: user.cpf.value,
           veiculo: user.veiculo.value,
           km: user.km.value,
+          placa: user.placa.value,
           observacao: user.observacao.value,
         })
         .then(({ data }) => toast.success(data))
@@ -83,6 +86,7 @@ const Form = ({ getUsers, onEdit, setOnEdit }) => {
           cpf: user.cpf.value,
           veiculo: user.veiculo.value,
           km: user.km.value,
+          placa: user.placa.value,
           observacao: user.observacao.value,
         })
         .then(({ data }) => toast.success(data))
@@ -92,6 +96,7 @@ const Form = ({ getUsers, onEdit, setOnEdit }) => {
     user.cpf.value = "";
     user.veiculo.value = "";
     user.km.value = "";
+    user.placa.value = "";
     user.observacao.value = "";
 
     setOnEdit(null);
@@ -111,6 +116,10 @@ const Form = ({ getUsers, onEdit, setOnEdit }) => {
       <InputArea>
         <Label>KM</Label>
         <Input name="km" />
+      </InputArea>
+      <InputArea>
+        <Label>Placa</Label>
+        <Input name="placa" />
       </InputArea>
       <InputArea>
         <Label>Observação</Label>

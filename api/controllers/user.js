@@ -12,12 +12,13 @@ export const getUsers = (_, res) => {
 
 export const addUser = (req, res) => {
   const q =
-    "INSERT INTO usuarios(`cpf`, `veiculo`, `km`, `observacao`) VALUES(?)";
+    "INSERT INTO usuarios(`cpf`, `veiculo`, `km`,`placa`, `observacao`) VALUES(?)";
 
   const values = [
     req.body.cpf,
     req.body.veiculo,
     req.body.km,
+    req.body.placa,
     req.body.observacao,
   ];
 
@@ -30,12 +31,13 @@ export const addUser = (req, res) => {
 
 export const updateUser = (req, res) => {
   const q =
-    "UPDATE usuarios SET `cpf` = ?, `veiculo` = ?, `km` = ?, `observacao` = ? WHERE `id` = ?";
+    "UPDATE usuarios SET `cpf` = ?, `veiculo` = ?, `km` = ?,`placa` = ?, `observacao` = ? WHERE `id` = ?";
 
   const values = [
     req.body.cpf,
     req.body.veiculo,
     req.body.km,
+    req.body.placa,
     req.body.observacao,
   ];
 
